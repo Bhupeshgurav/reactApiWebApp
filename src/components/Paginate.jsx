@@ -11,8 +11,8 @@ const Paginate = props =>{
     }
 
     
-    return (<nav>
-        <ul className="pagination pagination-sm justify-content-end border-0">
+    return (<footer >
+        <ul className=" justify-content-center pagination pagination-sm justify-content-end border-0">
             {pageNumbers.map(number=>{
                 let classes = "page-item ";
                 if(number === props.currentPage){
@@ -25,6 +25,6 @@ const Paginate = props =>{
                 ) 
             })}
         </ul>
-    </nav>);
+    </footer>);
 }
-export default Paginate
+export default Paginate;

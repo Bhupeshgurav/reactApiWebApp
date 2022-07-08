@@ -11,7 +11,7 @@ const Giphy = () =>{
     const [isLoading,setIsLoading] = useState(false);
     const [isError,setIsError] = useState(false);
     const [currentPage, setCurrentPage] = useState(1)
-    const [itemsPerPage, setItemsPerPage] = useState(25)
+    const [itemsPerPage, setItemsPerPage] = useState(10)
     const indexOfLastItem = currentPage*itemsPerPage
     const indexOfFirstItem = indexOfLastItem - itemsPerPage
     const currentItems = data.slice(indexOfFirstItem,indexOfLastItem)
@@ -63,9 +63,14 @@ const renderGifs = () =>{
     }
     return currentItems.map(el=>{
         return (
-            <div key={el.id} className="gif">
+            <div key={el.id} className="gif" >
+                
                 <img src={el.images.fixed_height.url}/>
+                
+                
             </div>
+
+            
         );
     });
 };
@@ -122,18 +127,24 @@ const pageSelected =(pageNumber) =>{
     return (
         <div className="m-2">
             {renderError()}
+            
+            
             <form className='form-inline justify-content-center m-2'>
                 <input value= {search} onChange= {handleSearchChange} type="text" placeholder="search" className="form-control"/>
-                <button onClick= {handleSubmit} type="submit" className ="btn btn-primary mx-2">Go</button>
+                <button onClick= {handleSubmit} type="submit" className ="btn btn-secondary mx-2">Go</button>
             </form>
 
-            <Paginate pageSelected = {pageSelected}
-            currentPage={currentPage} itemsPerPage={itemsPerPage} totalItems={data.length}/>
+            
 
         <div className="container gifs">
             {renderGifs()}
         </div>
+        <br/>
+        <br/>
+        <Paginate  pageSelected = {pageSelected}
+            currentPage={currentPage} itemsPerPage={itemsPerPage} totalItems={data.length}/>
         </div>
+        
     )
     
 

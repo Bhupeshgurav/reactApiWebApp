@@ -1,19 +1,25 @@
 body{
-    background-color: black;
+    background-color: crimson;
+
+}
+.headline{
+    justify-content: center;
 }
 
 .gifs{
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
     display:flex;
     flex-wrap:wrap;
     justify-content: center;
 }
 
 .gif{
-    padding:0 2px;
+    padding: 5px 10px 15px 20px;
 }
 
+
+
 .loader{
-    color:blue;
+    color:crimson;
 }
